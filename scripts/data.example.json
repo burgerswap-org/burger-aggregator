@@ -1,0 +1,115 @@
+{
+	"WETH9": {
+		"address": "0xd68832e9087c44c5F2fb33721E6109649ab2c682",
+		"constructorArgs": [],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": true,
+		"upgraded": true,
+		"verified": false
+	},
+	"Burger": {
+		"address": "0xcF7edcD7B3a3376B90a2491b3624EB5eE7d43a64",
+		"constructorArgs": [],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": true,
+		"upgraded": true,
+		"verified": false
+	},
+	"BurgerPlatform": {
+		"address": "0x87a861938a4F36b74F22AB2ffe846A2b576BD3ef",
+		"constructorArgs": [],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": true,
+		"upgraded": true,
+		"verified": false
+	},
+	"BurgerConfig": {
+		"address": "",
+		"constructorArgs": [],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": false,
+		"upgraded": false,
+		"verified": false
+	},
+	"BurgerDexManager": {
+		"address": "",
+		"constructorArgs": [],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": false,
+		"upgraded": false,
+		"verified": false
+	},
+	"BurgerSwapReward": {
+		"address": "",
+		"constructorArgs": [],
+		"upgradeArgs": [
+			"${Burger.address}"
+		],
+		"upgradedAddress": "",
+		"deployed": false,
+		"upgraded": false,
+		"verified": false
+	},
+	"BurgerAggregator": {
+		"address": "",
+		"onlyDeploy": true,
+		"constructorArgs": [
+			"${WETH9.address}"
+		],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": false,
+		"upgraded": false,
+		"verified": false
+	},
+	"AggregatorRouter": {
+		"address": "",
+		"constructorArgs": [],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": false,
+		"upgraded": false,
+		"verified": false
+	},
+	"DexUniswapV2": {
+		"address": "",
+		"onlyDeploy": true,
+		"constructorArgs": [
+			"${WETH9.address}"
+		],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": false,
+		"upgraded": false,
+		"verified": false
+	},
+	"DexBurgerswap": {
+		"address": "",
+		"onlyDeploy": true,
+		"constructorArgs": [
+			"${WETH9.address}"
+		],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": false,
+		"upgraded": false,
+		"verified": false
+	},
+	"DexWooFiswap": {
+		"address": "",
+		"onlyDeploy": true,
+		"constructorArgs": [
+			"${WETH9.address}"
+		],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": false,
+		"upgraded": false,
+		"verified": false
+	}
+}

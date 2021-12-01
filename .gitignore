@@ -1,0 +1,11 @@
+node_modules
+artifacts
+cache
+config.ts
+.hardhat.*
+typechain
+build
+flatten
+scripts/.data.*
+scripts/.callData.*
+contracts-*

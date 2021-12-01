@@ -1,0 +1,554 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x046a40b15a4EF344BEfC5a2462B1AFAa323214ab",
+    "txHash": "0x870720796fdde9816c29e12ca801cbb130ec912402453b48b7b4c6973d1b3bfd",
+    "deployTransaction": {
+      "hash": "0x870720796fdde9816c29e12ca801cbb130ec912402453b48b7b4c6973d1b3bfd",
+      "type": 0,
+      "accessList": null,
+      "blockHash": null,
+      "blockNumber": null,
+      "transactionIndex": null,
+      "confirmations": 0,
+      "from": "0x07fF0ed51ABAf0ebeF2dDdabB463A0E17235de46",
+      "gasPrice": {
+        "type": "BigNumber",
+        "hex": "0x02540be400"
+      },
+      "gasLimit": {
+        "type": "BigNumber",
+        "hex": "0x075da0"
+      },
+      "to": null,
+      "value": {
+        "type": "BigNumber",
+        "hex": "0x00"
+      },
+      "nonce": 1612,
+      "data": "0x608060405234801561001057600080fd5b50600080546001600160a01b031916339081178255604051909182917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a350610759806100616000396000f3fe60806040526004361061007b5760003560e01c80639623609d1161004e5780639623609d1461011157806399a88ec414610124578063f2fde38b14610144578063f3b7dead146101645761007b565b8063204e1c7a14610080578063715018a6146100bc5780637eff275e146100d35780638da5cb5b146100f3575b600080fd5b34801561008c57600080fd5b506100a061009b366004610515565b610184565b6040516001600160a01b03909116815260200160405180910390f35b3480156100c857600080fd5b506100d1610215565b005b3480156100df57600080fd5b506100d16100ee366004610554565b610292565b3480156100ff57600080fd5b506000546001600160a01b03166100a0565b6100d161011f36600461058c565b61031c565b34801561013057600080fd5b506100d161013f366004610554565b6103ad565b34801561015057600080fd5b506100d161015f366004610515565b610405565b34801561017057600080fd5b506100a061017f366004610515565b6104ef565b6000806000836001600160a01b03166040516101aa90635c60da1b60e01b815260040190565b600060405180830381855afa9150503d80600081146101e5576040519150601f19603f3d011682016040523d82523d6000602084013e6101ea565b606091505b5091509150816101f957600080fd5b8080602001905181019061020d9190610538565b949350505050565b6000546001600160a01b031633146102485760405162461bcd60e51b815260040161023f906106c0565b60405180910390fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b6000546001600160a01b031633146102bc5760405162461bcd60e51b815260040161023f906106c0565b6040516308f2839760e41b81526001600160a01b038281166004830152831690638f283970906024015b600060405180830381600087803b15801561030057600080fd5b505af1158015610314573d6000803e3d6000fd5b505050505050565b6000546001600160a01b031633146103465760405162461bcd60e51b815260040161023f906106c0565b60405163278f794360e11b81526001600160a01b03841690634f1ef286903490610376908690869060040161065d565b6000604051808303818588803b15801561038f57600080fd5b505af11580156103a3573d6000803e3d6000fd5b5050505050505050565b6000546001600160a01b031633146103d75760405162461bcd60e51b815260040161023f906106c0565b604051631b2ce7f360e11b81526001600160a01b038281166004830152831690633659cfe6906024016102e6565b6000546001600160a01b0316331461042f5760405162461bcd60e51b815260040161023f906106c0565b6001600160a01b0381166104945760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b606482015260840161023f565b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b0392909216919091179055565b6000806000836001600160a01b03166040516101aa906303e1469160e61b815260040190565b600060208284031215610526578081fd5b81356105318161070b565b9392505050565b600060208284031215610549578081fd5b81516105318161070b565b60008060408385031215610566578081fd5b82356105718161070b565b915060208301356105818161070b565b809150509250929050565b6000806000606084860312156105a0578081fd5b83356105ab8161070b565b925060208401356105bb8161070b565b9150604084013567ffffffffffffffff808211156105d7578283fd5b818601915086601f8301126105ea578283fd5b8135818111156105fc576105fc6106f5565b604051601f8201601f19908116603f01168101908382118183101715610624576106246106f5565b8160405282815289602084870101111561063c578586fd5b82602086016020830137856020848301015280955050505050509250925092565b600060018060a01b038416825260206040818401528351806040850152825b818110156106985785810183015185820160600152820161067c565b818111156106a95783606083870101525b50601f01601f191692909201606001949350505050565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604082015260600190565b634e487b7160e01b600052604160045260246000fd5b6001600160a01b038116811461072057600080fd5b5056fea2646970667358221220d849f96f3086b9f82cdcf665adb8c697ace05638da1c7c16ab2d26293717af6764736f6c63430008020033",
+      "r": "0x7b41f1719d1541fa1d8a9f2ab8f9a67a3fabeaf119e1aa02048ced37c0d1956e",
+      "s": "0x413cca42ad8a0fd19410eebec35dfcf6295e35925d22c1c9bdfd0878fee7a45d",
+      "v": 229,
+      "creates": "0x046a40b15a4EF344BEfC5a2462B1AFAa323214ab",
+      "chainId": 97
+    }
+  },
+  "proxies": [
+    {
+      "address": "0x5eC5Ff9b4728e7afB925c3648579dBdbEa99CADd",
+      "txHash": "0xe8e1a3033c8b7cf22a536b554e537c646e25f6f844b842d7d5af645228c938c0",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x80EBCf864CF059aB840E4F05406c4578e2eB13a4",
+      "txHash": "0xa0776701b25dcc805368eec5ed4b0023d80a96839f966ba88800bd95aa11ed07",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x4bA71b37F22116E25509e4DE93a9FB76fF889518",
+      "txHash": "0xa17a3018c37f47277c06659d91952e54151b20aa8b93c28756bafab837d04088",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xe46693dF9312672f0D7CCEa9625d512b380b50B1",
+      "txHash": "0x814bd0a37e35e0188bd47efb9c8ae109f726e93fdfa933dcc77185b5036737c9",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xF8fd7Ef7614d0baB0477eb12416817377EFBE980",
+      "txHash": "0x03fc9c7864ec1f5f0b273fc47d7024b6a874eb58ea87e6850281b904090e9f06",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x377417379c71e4b6f329ac974997304098655aCa",
+      "txHash": "0xfd233fe5557cfafdd77e28b9684a1673c6d77745ee7b5181cd5cfeeb9aaafb4c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9b7598A4e40baCbb471d3F907Fe8915aE80BdDc0",
+      "txHash": "0xc5955bfc403fb5030cc052057ef37dae96c969d14d8863b2e93fc40c524edba5",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xa3E188f7227F501E39Cfb1745F24951821A1Fe54",
+      "txHash": "0x800124722a5f17e3e22ec1ee68cb16770fa88299502b4cfeecd1f8e2556ccaa4",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "1e9f11d5bd9d728b8b47d9f9b95a6631b25b26c44b723eaa68ddb3a87b81a3e2": {
+      "address": "0x78F69eE7A53f263033d806CC2a0fE8FEE28E3058",
+      "txHash": "0xdff78580527d26fe544957bc5b44363f35ea4fa633240a196b038010f281c5d4",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "contracts/modules/Initializable.sol:63"
+          },
+          {
+            "contract": "BurgerConfig",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts/BurgerConfig.sol:7"
+          },
+          {
+            "contract": "BurgerConfig",
+            "label": "dev",
+            "type": "t_address",
+            "src": "contracts/BurgerConfig.sol:8"
+          },
+          {
+            "contract": "BurgerConfig",
+            "label": "admin",
+            "type": "t_address",
+            "src": "contracts/BurgerConfig.sol:9"
+          },
+          {
+            "contract": "BurgerConfig",
+            "label": "team",
+            "type": "t_address",
+            "src": "contracts/BurgerConfig.sol:10"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          }
+        }
+      }
+    },
+    "e05db3b0119874324319905d20752eb358eb93cb88cdd2fecf9043f5fdf01ef8": {
+      "address": "0x1566E63277817948eD53AE1a5904ae1B17B09B99",
+      "txHash": "0xc5ef306e35cabf0eebf20b9ec24f67a287f11b52c6d9a1e697658575abbe2f46",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Configable",
+            "label": "config",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:11"
+          },
+          {
+            "contract": "Configable",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:12"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "contracts/modules/Initializable.sol:63"
+          },
+          {
+            "contract": "BurgerDexManager",
+            "label": "dexs",
+            "type": "t_array(t_struct(BurgerDexProtocal)2493_storage)dyn_storage",
+            "src": "contracts/BurgerDexManager.sol:11"
+          },
+          {
+            "contract": "BurgerDexManager",
+            "label": "pids",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/BurgerDexManager.sol:12"
+          },
+          {
+            "contract": "BurgerDexManager",
+            "label": "dexMapProtocol",
+            "type": "t_mapping(t_address,t_address)",
+            "src": "contracts/BurgerDexManager.sol:13"
+          }
+        ],
+        "types": {
+          "t_array(t_struct(BurgerDexProtocal)2493_storage)dyn_storage": {
+            "label": "struct BurgerDexManager.BurgerDexProtocal[]"
+          },
+          "t_struct(BurgerDexProtocal)2493_storage": {
+            "label": "struct BurgerDexManager.BurgerDexProtocal",
+            "members": [
+              {
+                "label": "protocol",
+                "type": "t_address"
+              },
+              {
+                "label": "dex",
+                "type": "t_address"
+              },
+              {
+                "label": "flag",
+                "type": "t_uint256"
+              },
+              {
+                "label": "name",
+                "type": "t_string_storage"
+              }
+            ]
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_address)": {
+            "label": "mapping(address => address)"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "ac21912ded593b70117817bbed2a11d077d539baf1212ee09f35650ca2f37726": {
+      "address": "0x6cE660f7c414C6Fe1171A8407270eEe6de4B9297",
+      "txHash": "0xe05641a63ea80eda44f94e2ee68dcd75d8f2bc78a03413fabe1835c8541c7daf",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Configable",
+            "label": "config",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:11"
+          },
+          {
+            "contract": "Configable",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:12"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "contracts/modules/Initializable.sol:63"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "baseRate",
+            "type": "t_uint256",
+            "src": "contracts/BurgerSwapReward.sol:14"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "rewardToken",
+            "type": "t_address",
+            "src": "contracts/BurgerSwapReward.sol:15"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "pids",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/BurgerSwapReward.sol:16"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "rewards",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/BurgerSwapReward.sol:17"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "whiteList",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "contracts/BurgerSwapReward.sol:18"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "pools",
+            "type": "t_array(t_struct(PoolInfo)2728_storage)dyn_storage",
+            "src": "contracts/BurgerSwapReward.sol:24"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_struct(PoolInfo)2728_storage)dyn_storage": {
+            "label": "struct BurgerSwapReward.PoolInfo[]"
+          },
+          "t_struct(PoolInfo)2728_storage": {
+            "label": "struct BurgerSwapReward.PoolInfo",
+            "members": [
+              {
+                "label": "token",
+                "type": "t_address"
+              },
+              {
+                "label": "rate",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "b24062f37497998e571a3fe550270f0f08571b77359768afbfb6865680151545": {
+      "address": "0x1Ef9d58A6b4e086EfE8A7A6BAFA22d020a428B1E",
+      "txHash": "0x1d461b51bed509e92dc0d29242f9ef5e2c3ab7927467e56e0576975b3dc0a5a5",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Configable",
+            "label": "config",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:11"
+          },
+          {
+            "contract": "Configable",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:12"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "contracts/modules/Initializable.sol:63"
+          },
+          {
+            "contract": "AggregatorRouter",
+            "label": "dexManager",
+            "type": "t_contract(IBurgerDexManager)5430",
+            "src": "contracts/AggregatorRouter.sol:19"
+          },
+          {
+            "contract": "AggregatorRouter",
+            "label": "_connectors",
+            "type": "t_struct(AddressSet)7958_storage",
+            "src": "contracts/AggregatorRouter.sol:20"
+          }
+        ],
+        "types": {
+          "t_contract(IBurgerDexManager)5430": {
+            "label": "contract IBurgerDexManager"
+          },
+          "t_struct(AddressSet)7958_storage": {
+            "label": "struct EnumerableSet.AddressSet",
+            "members": [
+              {
+                "label": "_inner",
+                "type": "t_struct(Set)7693_storage"
+              }
+            ]
+          },
+          "t_struct(Set)7693_storage": {
+            "label": "struct EnumerableSet.Set",
+            "members": [
+              {
+                "label": "_values",
+                "type": "t_array(t_bytes32)dyn_storage"
+              },
+              {
+                "label": "_indexes",
+                "type": "t_mapping(t_bytes32,t_uint256)"
+              }
+            ]
+          },
+          "t_array(t_bytes32)dyn_storage": {
+            "label": "bytes32[]"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_address": {
+            "label": "address"
+          }
+        }
+      }
+    },
+    "e20a521a0890b508ddbae035832786823a44953daad17c97af94d4443f4cd42a": {
+      "address": "0x63ee09DE926fA53A4abdc9834b05a87bba5C5D27",
+      "txHash": "0xc2c11987231ad6d28fa4c8361efb558a7208495eb7c8f096ed7836281fa5d1a8",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Configable",
+            "label": "config",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:11"
+          },
+          {
+            "contract": "Configable",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:12"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "contracts/modules/Initializable.sol:63"
+          },
+          {
+            "contract": "AggregatorRouter",
+            "label": "dexManager",
+            "type": "t_contract(IBurgerDexManager)5450",
+            "src": "contracts/AggregatorRouter.sol:19"
+          },
+          {
+            "contract": "AggregatorRouter",
+            "label": "_connectors",
+            "type": "t_struct(AddressSet)7978_storage",
+            "src": "contracts/AggregatorRouter.sol:20"
+          }
+        ],
+        "types": {
+          "t_contract(IBurgerDexManager)5450": {
+            "label": "contract IBurgerDexManager"
+          },
+          "t_struct(AddressSet)7978_storage": {
+            "label": "struct EnumerableSet.AddressSet",
+            "members": [
+              {
+                "label": "_inner",
+                "type": "t_struct(Set)7713_storage"
+              }
+            ]
+          },
+          "t_struct(Set)7713_storage": {
+            "label": "struct EnumerableSet.Set",
+            "members": [
+              {
+                "label": "_values",
+                "type": "t_array(t_bytes32)dyn_storage"
+              },
+              {
+                "label": "_indexes",
+                "type": "t_mapping(t_bytes32,t_uint256)"
+              }
+            ]
+          },
+          "t_array(t_bytes32)dyn_storage": {
+            "label": "bytes32[]"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_address": {
+            "label": "address"
+          }
+        }
+      }
+    }
+  }
+}

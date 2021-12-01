@@ -1,0 +1,181 @@
+[
+    {
+        "call": true,
+        "functionName": "setupConfig",
+        "contractName": "BurgerDexManager",
+        "contractAddr": "",
+        "args": [
+            "${BurgerConfig.address}"
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "setupConfig",
+        "contractName": "BurgerAggregator",
+        "contractAddr": "",
+        "args": [
+            "${BurgerConfig.address}"
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "setupConfig",
+        "contractName": "AggregatorRouter",
+        "contractAddr": "",
+        "args": [
+            "${BurgerConfig.address}"
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "setupConfig",
+        "contractName": "BurgerSwapReward",
+        "contractAddr": "",
+        "args": [
+            "${BurgerConfig.address}"
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "increaseFund",
+        "contractName": "Burger",
+        "contractAddr": "",
+        "args": [
+            "${BurgerSwapReward.address}",
+            "100000000000000000000000000"
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "configure",
+        "contractName": "DexBurgerswap",
+        "contractAddr": "",
+        "args": [
+            "${BurgerPlatform.address}"
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "batchSetProtocol",
+        "contractName": "BurgerDexManager",
+        "contractAddr": "",
+        "args": [
+            [
+                "${DexUniswapV2.address}",
+                "${DexUniswapV2.address}",
+                "${DexUniswapV2.address}",
+                "${DexUniswapV2.address}",
+                "${DexUniswapV2.address}",
+                "${DexUniswapV2.address}",
+                "${DexBurgerswap.address}",
+                "${DexWooFiswap.address}",
+                "${DexUniswapV2.address}"
+            ],
+            [
+                "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+                "0x3CD1C46068dAEa5Ebb0d3f55F6915B10648062B8",
+                "0x858E3312ed3A876947EA49d572A7C42DE08af7EE",
+                "0x0841BD0B734E4F5853f0dD8d7Ea041c241fb0Da6",
+                "0x01bF7C66c6BD861915CdaaE475042d3c4BaE16A7",
+                "0x86407bEa2078ea5f5EB5A52B2caA963bC1F889Da",
+                "0x8a1E9d3aEbBBd5bA2A64d3355A48dD5E9b511256",
+                "0x114f84658c99aa6EA62e3160a87A16dEaF7EFe83",
+                "0x553990F2CBA90272390f62C5BDb1681fFc899675"
+            ],
+            [
+                1,
+                2,
+                4,
+                8,
+                16,
+                32,
+                64,
+                128,
+                256
+            ],
+            [
+                "PancakeSwapV2",
+                "MDEX",
+                "ApeSwap",
+                "BiSwap",
+                "BakerySwap",
+                "BabySwap",
+                "BurgerSwap",
+                "WooFiSwap",
+                "JulSwap"
+            ]
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "configure",
+        "contractName": "BurgerAggregator",
+        "contractAddr": "",
+        "args": [
+            "${BurgerDexManager.address}",
+            "${BurgerSwapReward.address}",
+            "${BurgerPlatform.address}",
+            30
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "configure",
+        "contractName": "AggregatorRouter",
+        "contractAddr": "",
+        "args": [
+            "${BurgerDexManager.address}"
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "batchAddConnector",
+        "contractName": "AggregatorRouter",
+        "contractAddr": "",
+        "args": [
+            [
+                "0x55d398326f99059ff775485246999027b3197955",
+                "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+                "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+            ]
+        ]
+    },
+    {
+        "call": true,
+        "functionName": "setWhiteList",
+        "contractName": "BurgerSwapReward",
+        "contractAddr": "",
+        "args": [
+            "${BurgerAggregator.address}",
+            true
+        ]
+    },
+    {
+        "call": false,
+        "functionName": "setBaseRate",
+        "contractName": "BurgerSwapReward",
+        "contractAddr": "",
+        "args": [
+            "1000000000000000000"
+        ]
+    },
+    {
+        "call": false,
+        "functionName": "batchSetRate",
+        "contractName": "BurgerSwapReward",
+        "contractAddr": "",
+        "args": [
+            [
+                "0x941Af07A986b92f7584e78999E73D124e823Ee0B",
+                "0x6a6E31Bd0a803e012ad3F59A83B207F39A748Dea",
+                "0x0000000000000000000000000000000000000000"
+                
+            ],
+            [
+                "100000000000000000",
+                "100000000000000000",
+                "200000000000000000"
+            ]
+        ]
+    }
+]
