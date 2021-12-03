@@ -111,5 +111,14 @@
 		"deployed": false,
 		"upgraded": false,
 		"verified": false
+	},
+	"TokenShare": {
+		"address": "",
+		"constructorArgs": [],
+		"upgradeArgs": [],
+		"upgradedAddress": "",
+		"deployed": false,
+		"upgraded": false,
+		"verified": false
 	}
 }

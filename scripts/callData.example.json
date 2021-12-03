@@ -173,5 +173,14 @@
         "args": [
             "${BurgerPlatform.address}"
         ]
+    },
+    {
+        "call": true,
+        "functionName": "setupConfig",
+        "contractName": "TokenShare",
+        "contractAddr": "",
+        "args": [
+            "${BurgerConfig.address}"
+        ]
     }
 ]

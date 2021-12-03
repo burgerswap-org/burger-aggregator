@@ -54,6 +54,11 @@
       "address": "0x0ddC12f24976168810CcBA58E4Af7389f1D564C1",
       "txHash": "0x1b05bba454fe89ee9a7bf39c7be15c9a56aa4492a8c6829760faf1023468da50",
       "kind": "transparent"
+    },
+    {
+      "address": "0x5eb221b7170A74CD6dA30387598257b148B512B7",
+      "txHash": "0x90fe0be37e569887a90fd801ae1eae11d3facfa2ab733e69a3a1ff0fe80ef02f",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -428,6 +433,76 @@
           },
           "t_address": {
             "label": "address"
+          }
+        }
+      }
+    },
+    "3180579e0d2a063a3012664bc5959bca38f67ac3063905814c6ef91a05f12b4d": {
+      "address": "0xdc5771f66c64272c7910f28B275167902A71c9bD",
+      "txHash": "0x73a74fabe4a73411bd6c238af24fdf246d9b68d1781830a9a4d6380a0340b54b",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Configable",
+            "label": "config",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:11"
+          },
+          {
+            "contract": "Configable",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:12"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "contracts/modules/Initializable.sol:63"
+          },
+          {
+            "contract": "TokenShare",
+            "label": "users",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "contracts/TokenShare.sol:10"
+          },
+          {
+            "contract": "TokenShare",
+            "label": "rates",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/TokenShare.sol:11"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
           }
         }
       }
