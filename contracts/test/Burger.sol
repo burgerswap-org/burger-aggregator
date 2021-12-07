@@ -1,4 +1,3 @@
-// Dependency file: contracts/libraries/SafeMath.sol
 
 // SPDX-License-Identifier: MIT
 
@@ -160,11 +159,7 @@ library SafeMath {
     }
 }
 
-// Dependency file: contracts/modules/ERC20Token.sol
-
 // pragma solidity >=0.6.0;
-
-// import 'contracts/libraries/SafeMath.sol';
 
 contract ERC20Token {
     using SafeMath for uint;
@@ -209,8 +204,6 @@ contract ERC20Token {
 
 }
 
-
-// Dependency file: contracts/modules/Initializable.sol
 
 
 // pragma solidity >=0.6.0;

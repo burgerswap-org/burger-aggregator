@@ -40,8 +40,6 @@ interface IBurgerSwapV2Pair {
 }
 
 
-// Dependency file: contracts/interfaces/IBurgerSwapV2Factory.sol
-
 // pragma solidity >=0.6.6;
 
 interface IBurgerSwapV2Factory {
@@ -58,9 +56,6 @@ interface IBurgerSwapV2Factory {
     function setFeeToSetter(address) external;
     function feeToRate() external view returns (uint);
 }
-
-
-// Dependency file: contracts/libraries/SafeMath.sol
 
 // pragma solidity >=0.6.6;
 
@@ -80,13 +75,7 @@ library SafeMath {
     }
 }
 
-
-// Dependency file: contracts/BurgerSwapV2ERC20.sol
-
 // pragma solidity >=0.6.6;
-
-// import 'contracts/interfaces/IBurgerSwapV2Factory.sol';
-// import 'contracts/libraries/SafeMath.sol';
 
 contract BurgerSwapV2ERC20 {
     using SafeMath for uint;
