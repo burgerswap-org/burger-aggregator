@@ -186,12 +186,23 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
         require (fromToken != destToken, 'Same token');
 
         fromToken.universalTransferFrom(msg.sender, address(this), amount);
-        returnAmount = _swap(fromToken, destToken, amount, distribution, flags);
-
+        if (address(destToken) == address(0)) {
+            returnAmount = _swap(fromToken, IERC20(weth), amount, distribution, flags);
+        } else {
+            returnAmount = _swap(fromToken, destToken, amount, distribution, flags);
+        }
+    
         uint256 feeAmount = returnAmount.mul(fee).div(1e4);
         require(returnAmount.sub(feeAmount) >= minReturn, "Less than minReturn");
-        destToken.universalTransfer(team(), feeAmount);
-        destToken.universalTransfer(msg.sender, returnAmount.sub(feeAmount));
+        
+        if (address(destToken) == address(0)) {
+            IERC20(weth).universalTransfer(team(), feeAmount);
+            IWETH(weth).withdraw(returnAmount.sub(feeAmount));
+            destToken.universalTransfer(msg.sender, returnAmount.sub(feeAmount));
+        } else {
+            destToken.universalTransfer(team(), feeAmount);
+            destToken.universalTransfer(msg.sender, returnAmount.sub(feeAmount));
+        }
 
         addReward(msg.sender, address(fromToken), address(destToken), amount, returnAmount);
         emit Swap(msg.sender, address(fromToken), address(destToken), amount, returnAmount);
@@ -221,21 +232,25 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
                 dist[j] = (distribution[j] >> (8 * (i - 1))) & 0xFF;
             }
 
-            _swap(
-                tokens[i - 1],
-                tokens[i],
-                returnAmount,
-                dist,
-                flags[i - 1]
-            );
-            returnAmount = tokens[i].universalBalanceOf(address(this));
-            // tokens[i - 1].universalTransfer(msg.sender, tokens[i - 1].universalBalanceOf(address(this)));
+            if (i == (tokens.length - 1) && address(tokens[tokens.length - 1]) == address(0)) {
+                _swap(tokens[i - 1], IERC20(weth), returnAmount, dist, flags[i - 1]);
+                returnAmount = IERC20(weth).universalBalanceOf(address(this));
+            } else {
+                _swap(tokens[i - 1], tokens[i], returnAmount, dist, flags[i - 1]);
+                returnAmount = tokens[i].universalBalanceOf(address(this));
+            }
         }
 
         uint256 feeAmount = returnAmount.mul(fee).div(1e4);
         require(returnAmount.sub(feeAmount) >= minReturn, "Less than minReturn");
-        tokens[tokens.length - 1].universalTransfer(team(), feeAmount);
-        tokens[tokens.length - 1].universalTransfer(msg.sender, returnAmount.sub(feeAmount));
+        if (address(tokens[tokens.length - 1]) == address(0)) {
+            IERC20(weth).universalTransfer(team(), feeAmount);
+            IWETH(weth).withdraw(returnAmount.sub(feeAmount));
+            tokens[tokens.length - 1].universalTransfer(msg.sender, returnAmount.sub(feeAmount));
+        } else {
+            tokens[tokens.length - 1].universalTransfer(team(), feeAmount);
+            tokens[tokens.length - 1].universalTransfer(msg.sender, returnAmount.sub(feeAmount));
+        }
 
         addReward(msg.sender, address(tokens[0]), address(tokens[tokens.length - 1]), amount, returnAmount);
         emit Swap(msg.sender, address(tokens[0]), address(tokens[tokens.length - 1]), amount, returnAmount);

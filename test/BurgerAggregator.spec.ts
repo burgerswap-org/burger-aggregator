@@ -229,6 +229,17 @@ describe('BurgerAggregator', async () => {
             expect(fromTokenBalanceAfter).to.gt(fromTokenBalanceBefore)
         })
 
+        it('success for fromToken-weth', async () => {
+            let fromTokenBalanceBefore = await fromToken.balanceOf(wallet.address)
+            let gasBalanceBefore = await wallet.getBalance();
+            let res = await aggregator.getExpectedReturnWithGas(fromToken.address, ethers.constants.AddressZero, bigNumber18, 50, 0, 0)
+            await aggregator.swap(fromToken.address, ethers.constants.AddressZero, bigNumber18, res.returnAmount.mul(999).div(1000), res.distribution, 0)
+            let fromTokenBalanceAfter = await fromToken.balanceOf(wallet.address)
+            let gasBalanceAfter = await wallet.getBalance();
+            expect(fromTokenBalanceBefore.sub(fromTokenBalanceAfter)).to.eq(bigNumber18)
+            expect(gasBalanceAfter).to.gt(gasBalanceBefore)
+        })
+
         it('gas used', async () => {
             let tx = await aggregator.swap(fromToken.address, destToken.address, amount, 0, [0, 5, 45], 0)
             let receipt = await tx.wait()
@@ -303,6 +314,29 @@ describe('BurgerAggregator', async () => {
             )
             let fromTokenBalanceAfter = await fromToken.balanceOf(wallet.address)
             expect(fromTokenBalanceAfter.sub(fromTokenBalanceBefore)).to.gt(bigNumber18.mul(95))
+        })
+
+        it('success for fromToken-connector0-weth', async () => {
+            let fromTokenBalanceBefore = await fromToken.balanceOf(wallet.address)
+            let gasBalanceBefore = await wallet.getBalance();
+            let res = await aggregator.getExpectedReturnWithGasMulti(
+                [fromToken.address, connector0.address, ethers.constants.AddressZero],
+                bigNumber18,
+                [20, 20],
+                [0, 0],
+                [0, 0],
+            )
+            await aggregator.swapMulti(
+                [fromToken.address, connector0.address, ethers.constants.AddressZero],
+                bigNumber18,
+                res.returnAmounts[1].mul(99).div(100),
+                res.distribution,
+                [0, 0]
+            )
+            let fromTokenBalanceAfter = await fromToken.balanceOf(wallet.address)
+            let gasBalanceAfter = await wallet.getBalance();
+            expect(fromTokenBalanceBefore.sub(fromTokenBalanceAfter)).to.eq(bigNumber18)
+            expect(gasBalanceAfter).to.gt(gasBalanceBefore)
         })
 
         it('gas used', async () => {
