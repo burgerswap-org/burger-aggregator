@@ -1,4 +1,4 @@
-// Dependency file: contracts/modules/Governable.sol
+
 
 // pragma solidity >=0.5.16;
 
@@ -32,8 +32,6 @@ contract Governable {
 
 }
 
-// Dependency file: contracts/modules/Ownable.sol
-
 // pragma solidity >=0.5.16;
 
 contract Ownable {
@@ -58,11 +56,8 @@ contract Ownable {
 
 }
 
-// Dependency file: contracts/modules/TokenRegistry.sol
 
 // pragma solidity >=0.5.16;
-
-// import './Governable.sol';
 
 /**
     Business Process
@@ -148,9 +143,7 @@ contract TokenRegistry is Governable {
     }
 
 }
-// Dependency file: contracts/libraries/TransferHelper.sol
 
-// SPDX-License-Identifier: GPL-3.0-or-later
 
 // pragma solidity >=0.6.0;
 
@@ -180,8 +173,6 @@ library TransferHelper {
     }
 }
 
-// Dependency file: contracts/libraries/ConfigNames.sol
-
 // pragma solidity >=0.5.16;
 
 library ConfigNames {
@@ -204,11 +195,6 @@ library ConfigNames {
     bytes32 public constant FEE_LP_REWARD_PERCENT = bytes32('FEE_LP_REWARD_PERCENT');
 }
 pragma solidity >=0.6.6;
-
-// import './libraries/ConfigNames.sol';
-// import './libraries/TransferHelper.sol';
-// import './modules/TokenRegistry.sol';
-// import './modules/Ownable.sol';
 
 contract DemaxConfig is TokenRegistry, Ownable {
     uint public version = 1;

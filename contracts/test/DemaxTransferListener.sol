@@ -1,4 +1,3 @@
-// Dependency file: contracts/libraries/SafeMath.sol
 
 // SPDX-License-Identifier: MIT
 
@@ -159,13 +158,9 @@ library SafeMath {
         return a % b;
     }
 }
-// Dependency file: contracts/libraries/DemaxSwapLibrary.sol
 
 // pragma solidity >=0.5.0;
 
-// import '../interfaces/IDemaxPair.sol';
-// import '../interfaces/IDemaxFactory.sol';
-// import "./SafeMath.sol";
 
 library DemaxSwapLibrary {
     using SafeMath for uint;
@@ -224,7 +219,6 @@ library DemaxSwapLibrary {
     }
 
 }
-// Dependency file: contracts/interfaces/IDemaxPair.sol
 
 // pragma solidity >=0.5.0;
 
@@ -266,8 +260,6 @@ interface IDemaxPair {
     function getDGASReserve() external view returns (uint);
 }
 
-// Dependency file: contracts/interfaces/IERC20.sol
-
 // pragma solidity >=0.5.0;
 
 interface IERC20 {
@@ -286,8 +278,6 @@ interface IERC20 {
     function transferFrom(address from, address to, uint value) external returns (bool);
 }
 
-// Dependency file: contracts/interfaces/IDemaxFactory.sol
-
 // pragma solidity >=0.5.0;
 
 interface IDemaxFactory {
@@ -304,8 +294,6 @@ interface IDemaxFactory {
     function createPair(address tokenA, address tokenB) external returns (address pair);
     function addPlayerPair(address player, address _pair) external returns (bool);
 }
-
-// Dependency file: contracts/interfaces/IDgas.sol
 
 // pragma solidity >=0.5.0;
 
@@ -324,7 +312,6 @@ interface IDgas {
     function transfer(address to, uint value) external returns (bool);
     function approve(address spender, uint value) external returns (bool);
 }
-// Dependency file: contracts/modules/Ownable.sol
 
 // pragma solidity >=0.5.16;
 
@@ -351,13 +338,7 @@ contract Ownable {
 }
 
 pragma solidity >=0.6.6;
-// import './modules/Ownable.sol';
-// import './interfaces/IDgas.sol';
-// import './interfaces/IDemaxFactory.sol';
-// import './interfaces/IERC20.sol';
-// import './interfaces/IDemaxPair.sol';
-// import './libraries/DemaxSwapLibrary.sol';
-// import './libraries/SafeMath.sol';
+
 
 contract DemaxTransferListener is Ownable {
     uint256 public version = 2;

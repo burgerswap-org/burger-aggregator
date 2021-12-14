@@ -1,4 +1,3 @@
-// Dependency file: contracts/interfaces/IWooPP.sol
 
 // SPDX-License-Identifier: MIT
 // pragma solidity =0.6.12;
@@ -122,8 +121,6 @@ interface IWooPP {
 }
 
 
-// Root file: contracts/interfaces/IWooGuardian.sol
-
 pragma solidity =0.6.12;
 // pragma experimental ABIEncoderV2;
 
@@ -159,8 +156,6 @@ pragma solidity =0.6.12;
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-
-// import 'contracts/interfaces/IWooPP.sol';
 
 /// @title Guardian interface to ensure the trading price and volume correct
 interface IWooGuardian {

@@ -274,9 +274,6 @@ contract Initializable {
 
 pragma solidity >=0.6.0;
 
-// import 'contracts/modules/ERC20Token.sol';
-// import 'contracts/modules/Initializable.sol';
-
 contract Burger is ERC20Token, Initializable {
     using SafeMath for uint;
     address public owner;

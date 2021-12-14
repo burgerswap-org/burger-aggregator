@@ -1,4 +1,3 @@
-// Dependency file: contracts/interfaces/IDemaxConfig.sol
 
 // pragma solidity >=0.5.0;
 
@@ -16,7 +15,6 @@ interface IDemaxConfig {
     function platform() external view returns  (address);
     function addToken(address _token) external returns (bool);
 }
-// Dependency file: contracts/libraries/ConfigNames.sol
 
 // pragma solidity >=0.5.16;
 
@@ -39,7 +37,6 @@ library ConfigNames {
     bytes32 public constant FEE_GOVERNANCE_REWARD_PERCENT = bytes32('FEE_GOVERNANCE_REWARD_PERCENT');
     bytes32 public constant FEE_LP_REWARD_PERCENT = bytes32('FEE_LP_REWARD_PERCENT');
 }
-// Dependency file: contracts/libraries/SafeMath.sol
 
 // SPDX-License-Identifier: MIT
 
@@ -200,7 +197,6 @@ library SafeMath {
         return a % b;
     }
 }
-// Dependency file: contracts/interfaces/IDemaxGovernance.sol
 
 // pragma solidity >=0.5.0;
 
@@ -209,8 +205,6 @@ interface IDemaxGovernance {
     function addReward(uint _value) external returns (bool);
 }
 
-
-// Dependency file: contracts/interfaces/IDemaxFactory.sol
 
 // pragma solidity >=0.5.0;
 
@@ -228,8 +222,6 @@ interface IDemaxFactory {
     function createPair(address tokenA, address tokenB) external returns (address pair);
     function addPlayerPair(address player, address _pair) external returns (bool);
 }
-
-// Dependency file: contracts/interfaces/IDemaxPair.sol
 
 // pragma solidity >=0.5.0;
 
@@ -271,8 +263,6 @@ interface IDemaxPair {
     function getDGASReserve() external view returns (uint);
 }
 
-// Dependency file: contracts/interfaces/IDgas.sol
-
 // pragma solidity >=0.5.0;
 
 interface IDgas {
@@ -290,7 +280,6 @@ interface IDgas {
     function transfer(address to, uint value) external returns (bool);
     function approve(address spender, uint value) external returns (bool);
 }
-// Dependency file: contracts/libraries/TransferHelper.sol
 
 
 // pragma solidity >=0.6.0;
@@ -321,8 +310,6 @@ library TransferHelper {
     }
 }
 
-// Dependency file: contracts/modules/Ownable.sol
-
 // pragma solidity >=0.5.16;
 
 contract Ownable {
@@ -348,15 +335,6 @@ contract Ownable {
 }
 
 pragma solidity >= 0.5.1;
-// import './modules/Ownable.sol';
-// import './libraries/TransferHelper.sol';
-// import './interfaces/IDgas.sol';
-// import './interfaces/IDemaxPair.sol';
-// import './interfaces/IDemaxFactory.sol';
-// import './interfaces/IDemaxGovernance.sol';
-// import './libraries/SafeMath.sol';
-// import './libraries/ConfigNames.sol';
-// import './interfaces/IDemaxConfig.sol';
 
 interface IDemaxPlatform {
     function swapExactTokensForETH(

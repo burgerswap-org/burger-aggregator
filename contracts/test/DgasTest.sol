@@ -1,4 +1,3 @@
-// Dependency file: contracts/interfaces/IERC20.sol
 
 // pragma solidity >=0.5.0;
 
@@ -18,7 +17,6 @@ interface IERC20 {
     function transferFrom(address from, address to, uint value) external returns (bool);
 }
 
-// Dependency file: contracts/libraries/SafeMath.sol
 
 // SPDX-License-Identifier: MIT
 
@@ -179,7 +177,6 @@ library SafeMath {
         return a % b;
     }
 }
-// Dependency file: contracts/modules/Upgradable.sol
 
 // pragma solidity >=0.5.16;
 
@@ -229,10 +226,8 @@ contract UpgradableGovernance {
     }
 }
 
-// Dependency file: contracts/interfaces/ERC2917-Interface.sol
-
 // pragma solidity >=0.6.6;
-// import '../interfaces/IERC20.sol';
+
 
 interface IERC2917 is IERC20 {
 
@@ -287,13 +282,9 @@ interface IERC2917 is IERC20 {
     /// @return the amount of interests minted.
     function mint() external returns (uint);
 }
-// Dependency file: contracts/modules/ERC2917Impl.sol
 
 // pragma solidity >=0.6.6;
 
-// import '../interfaces/ERC2917-Interface.sol';
-// import '../modules/Upgradable.sol';
-// import '../libraries/SafeMath.sol';
 
 /*
     The Objective of ERC2917 Demo is to implement a decentralized staking mechanism, which calculates users' share
@@ -509,7 +500,6 @@ contract ERC2917Impl is IERC2917, UpgradableProduct, UpgradableGovernance {
 
 pragma solidity >=0.5.16;
 
-// import '../modules/ERC2917Impl.sol';
 
 contract DgasTest is ERC2917Impl("Demax Gas", "DGAS", 18, 1000 * (10 ** 18)) {
 

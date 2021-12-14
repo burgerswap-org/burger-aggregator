@@ -1,4 +1,3 @@
-// Dependency file: contracts/libraries/InitializableOwnable.sol
 
 // SPDX-License-Identifier: MIT
 // pragma solidity =0.6.12;
@@ -56,9 +55,6 @@ contract InitializableOwnable {
         _NEW_OWNER_ = address(0);
     }
 }
-
-
-// Dependency file: @openzeppelin/contracts/math/SafeMath.sol
 
 
 // pragma solidity >=0.6.0 <0.8.0;
@@ -275,12 +271,9 @@ library SafeMath {
 }
 
 
-// Dependency file: contracts/libraries/DecimalMath.sol
-
 // pragma solidity =0.6.12;
 // pragma experimental ABIEncoderV2;
 
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/math/SafeMath.sol';
 
 /**
  * @title DecimalMath
@@ -328,9 +321,6 @@ library DecimalMath {
         }
     }
 }
-
-
-// Dependency file: contracts/interfaces/IWooracle.sol
 
 // pragma solidity =0.6.12;
 // pragma experimental ABIEncoderV2;
@@ -407,8 +397,6 @@ interface IWooracle {
     function isFeasible(address base) external view returns (bool);
 }
 
-
-// Dependency file: contracts/interfaces/IWooPP.sol
 
 // pragma solidity =0.6.12;
 // pragma experimental ABIEncoderV2;
@@ -530,9 +518,6 @@ interface IWooPP {
     function quoteToken() external view returns (address);
 }
 
-
-// Dependency file: contracts/interfaces/IRewardManager.sol
-
 // pragma solidity =0.6.12;
 // pragma experimental ABIEncoderV2;
 
@@ -583,8 +568,6 @@ interface IRewardManager {
 }
 
 
-// Dependency file: contracts/interfaces/IWooGuardian.sol
-
 // pragma solidity =0.6.12;
 // pragma experimental ABIEncoderV2;
 
@@ -621,7 +604,6 @@ interface IRewardManager {
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// import 'contracts/interfaces/IWooPP.sol';
 
 /// @title Guardian interface to ensure the trading price and volume correct
 interface IWooGuardian {
@@ -645,8 +627,6 @@ interface IWooGuardian {
     ) external view;
 }
 
-
-// Dependency file: contracts/interfaces/AggregatorV3Interface.sol
 
 // pragma solidity =0.6.12;
 // pragma experimental ABIEncoderV2;
@@ -683,9 +663,6 @@ interface AggregatorV3Interface {
             uint80 answeredInRound
         );
 }
-
-
-// Dependency file: @openzeppelin/contracts/token/ERC20/IERC20.sol
 
 
 // pragma solidity >=0.6.0 <0.8.0;
@@ -765,9 +742,6 @@ interface IERC20 {
 }
 
 
-// Dependency file: @openzeppelin/contracts/utils/Context.sol
-
-
 // pragma solidity >=0.6.0 <0.8.0;
 
 /*
@@ -791,15 +765,8 @@ abstract contract Context {
     }
 }
 
-
-// Dependency file: @openzeppelin/contracts/token/ERC20/ERC20.sol
-
-
 // pragma solidity >=0.6.0 <0.8.0;
 
-// import "@openzeppelin/contracts/utils/Context.sol";
-// import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-// import "@openzeppelin/contracts/math/SafeMath.sol";
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -1101,9 +1068,6 @@ contract ERC20 is Context, IERC20 {
 }
 
 
-// Dependency file: @openzeppelin/contracts/utils/Address.sol
-
-
 // pragma solidity >=0.6.2 <0.8.0;
 
 /**
@@ -1293,14 +1257,8 @@ library Address {
 }
 
 
-// Dependency file: @openzeppelin/contracts/token/ERC20/SafeERC20.sol
-
-
 // pragma solidity >=0.6.0 <0.8.0;
 
-// import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-// import "@openzeppelin/contracts/math/SafeMath.sol";
-// import "@openzeppelin/contracts/utils/Address.sol";
 
 /**
  * @title SafeERC20
@@ -1371,9 +1329,6 @@ library SafeERC20 {
 }
 
 
-// Dependency file: @openzeppelin/contracts/utils/ReentrancyGuard.sol
-
-
 // pragma solidity >=0.6.0 <0.8.0;
 
 /**
@@ -1436,12 +1391,8 @@ abstract contract ReentrancyGuard {
 }
 
 
-// Dependency file: @openzeppelin/contracts/utils/Pausable.sol
-
-
 // pragma solidity >=0.6.0 <0.8.0;
 
-// import "@openzeppelin/contracts/utils/Context.sol";
 
 /**
  * @dev Contract module which allows children to implement an emergency stop
@@ -1528,8 +1479,6 @@ abstract contract Pausable is Context {
     }
 }
 
-
-// Dependency file: @uniswap/lib/contracts/libraries/TransferHelper.sol
 
 
 // pragma solidity >=0.6.0;
@@ -1621,21 +1570,7 @@ pragma solidity =0.6.12;
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// import 'contracts/libraries/InitializableOwnable.sol';
-// import 'contracts/libraries/DecimalMath.sol';
-// import 'contracts/interfaces/IWooracle.sol';
-// import 'contracts/interfaces/IWooPP.sol';
-// import 'contracts/interfaces/IRewardManager.sol';
-// import 'contracts/interfaces/IWooGuardian.sol';
-// import 'contracts/interfaces/AggregatorV3Interface.sol';
 
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/token/ERC20/SafeERC20.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/utils/ReentrancyGuard.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/utils/Pausable.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/math/SafeMath.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@uniswap/lib/contracts/libraries/TransferHelper.sol';
 
 /// @title Woo private pool for swaping.
 /// @notice the implementation class for interface IWooPP, mainly for query and swap tokens.

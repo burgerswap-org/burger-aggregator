@@ -1,4 +1,3 @@
-// Dependency file: contracts/interfaces/ITokenRegistry.sol
 
 // pragma solidity >=0.5.16;
 
@@ -18,7 +17,6 @@ interface ITokenRegistry {
     function validTokens() external view returns(address[] memory);
     function iterateValidTokens(uint32 _start, uint32 _end) external view returns (address[] memory);
 }
-// Dependency file: contracts/interfaces/IDemaxTransferListener.sol
 
 // pragma solidity >=0.6.6;
 
@@ -26,7 +24,6 @@ interface IDemaxTransferListener {
     function transferNotify(address from, address to, address token, uint amount)  external returns (bool);
     function upgradeProdutivity(address fromPair, address toPair) external;
 }
-// Dependency file: contracts/modules/ReentrancyGuard.sol
 
 // SPDX-License-Identifier: MIT
 
@@ -91,7 +88,6 @@ abstract contract ReentrancyGuard {
     }
 }
 
-// Dependency file: contracts/modules/Ownable.sol
 
 // pragma solidity >=0.5.16;
 
@@ -117,7 +113,6 @@ contract Ownable {
 
 }
 
-// Dependency file: contracts/interfaces/IDemaxPool.sol
 
 // pragma solidity >=0.5.0;
 
@@ -126,7 +121,6 @@ interface IDemaxPool {
     function preProductivityChanged(address _pair, address _user) external;
     function postProductivityChanged(address _pair, address _user) external;
 }
-// Dependency file: contracts/interfaces/IDemaxPair.sol
 
 // pragma solidity >=0.5.0;
 
@@ -168,8 +162,6 @@ interface IDemaxPair {
     function getDGASReserve() external view returns (uint);
 }
 
-// Dependency file: contracts/interfaces/IDemaxFactory.sol
-
 // pragma solidity >=0.5.0;
 
 interface IDemaxFactory {
@@ -187,7 +179,6 @@ interface IDemaxFactory {
     function addPlayerPair(address player, address _pair) external returns (bool);
 }
 
-// Dependency file: contracts/interfaces/IERC20.sol
 
 // pragma solidity >=0.5.0;
 
@@ -207,8 +198,6 @@ interface IERC20 {
     function transferFrom(address from, address to, uint value) external returns (bool);
 }
 
-// Dependency file: contracts/interfaces/IDemaxConfig.sol
-
 // pragma solidity >=0.5.0;
 
 interface IDemaxConfig {
@@ -225,7 +214,6 @@ interface IDemaxConfig {
     function platform() external view returns  (address);
     function addToken(address _token) external returns (bool);
 }
-// Dependency file: contracts/interfaces/IDemaxGovernance.sol
 
 // pragma solidity >=0.5.0;
 
@@ -233,9 +221,6 @@ interface IDemaxGovernance {
     function addPair(address _tokenA, address _tokenB) external returns (bool);
     function addReward(uint _value) external returns (bool);
 }
-
-
-// Dependency file: contracts/interfaces/IWETH.sol
 
 // pragma solidity >=0.5.0;
 
@@ -245,13 +230,7 @@ interface IWETH {
     function withdraw(uint) external;
 }
 
-// Dependency file: contracts/libraries/DemaxSwapLibrary.sol
-
 // pragma solidity >=0.5.0;
-
-// import '../interfaces/IDemaxPair.sol';
-// import '../interfaces/IDemaxFactory.sol';
-// import "./SafeMath.sol";
 
 library DemaxSwapLibrary {
     using SafeMath for uint;
@@ -310,8 +289,6 @@ library DemaxSwapLibrary {
     }
 
 }
-// Dependency file: contracts/libraries/TransferHelper.sol
-
 
 // pragma solidity >=0.6.0;
 
@@ -340,8 +317,6 @@ library TransferHelper {
         require(success, 'TransferHelper: ETH_TRANSFER_FAILED');
     }
 }
-
-// Dependency file: contracts/libraries/SafeMath.sol
 
 
 // pragma solidity ^0.6.0;
@@ -501,7 +476,6 @@ library SafeMath {
         return a % b;
     }
 }
-// Dependency file: contracts/libraries/ConfigNames.sol
 
 // pragma solidity >=0.5.16;
 
@@ -525,21 +499,7 @@ library ConfigNames {
     bytes32 public constant FEE_LP_REWARD_PERCENT = bytes32('FEE_LP_REWARD_PERCENT');
 }
 pragma solidity >=0.6.6;
-// import './libraries/ConfigNames.sol';
-// import './libraries/SafeMath.sol';
-// import './libraries/TransferHelper.sol';
-// import './libraries/DemaxSwapLibrary.sol';
-// import './interfaces/IWETH.sol';
-// import './interfaces/IDemaxGovernance.sol';
-// import './interfaces/IDemaxConfig.sol';
-// import './interfaces/IERC20.sol';
-// import './interfaces/IDemaxFactory.sol';
-// import './interfaces/IDemaxPair.sol';
-// import './interfaces/IDemaxPool.sol';
-// import './modules/Ownable.sol';
-// import './modules/ReentrancyGuard.sol';
-// import './interfaces/IDemaxTransferListener.sol';
-// import './interfaces/ITokenRegistry.sol';
+
 
 contract DemaxPlatform is Ownable, ReentrancyGuard {
     uint256 public version = 1;

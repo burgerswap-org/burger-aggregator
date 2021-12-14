@@ -1,4 +1,3 @@
-// Dependency file: contracts/interfaces/IWooPP.sol
 
 // SPDX-License-Identifier: MIT
 // pragma solidity =0.6.12;
@@ -122,8 +121,6 @@ interface IWooPP {
 }
 
 
-// Dependency file: contracts/interfaces/IWETH.sol
-
 // pragma solidity =0.6.12;
 
 /// @title Wrapped ETH.
@@ -142,8 +139,6 @@ interface IWETH {
     function withdraw(uint256) external;
 }
 
-
-// Dependency file: contracts/interfaces/IWooRouter.sol
 
 // pragma solidity =0.6.12;
 
@@ -180,7 +175,6 @@ interface IWETH {
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// import 'contracts/interfaces/IWooPP.sol';
 
 /// @title Woo router interface
 /// @notice functions to interface with WooFi swap
@@ -264,8 +258,6 @@ interface IWooRouter {
 }
 
 
-// Dependency file: @openzeppelin/contracts/utils/Context.sol
-
 
 // pragma solidity >=0.6.0 <0.8.0;
 
@@ -291,12 +283,9 @@ abstract contract Context {
 }
 
 
-// Dependency file: @openzeppelin/contracts/access/Ownable.sol
-
-
 // pragma solidity >=0.6.0 <0.8.0;
 
-// import "@openzeppelin/contracts/utils/Context.sol";
+
 /**
  * @dev Contract module which provides a basic access control mechanism, where
  * there is an account (an owner) that can be granted exclusive access to
@@ -360,9 +349,6 @@ abstract contract Ownable is Context {
         _owner = newOwner;
     }
 }
-
-
-// Dependency file: @openzeppelin/contracts/utils/Address.sol
 
 
 // pragma solidity >=0.6.2 <0.8.0;
@@ -554,8 +540,6 @@ library Address {
 }
 
 
-// Dependency file: @openzeppelin/contracts/utils/ReentrancyGuard.sol
-
 
 // pragma solidity >=0.6.0 <0.8.0;
 
@@ -618,8 +602,6 @@ abstract contract ReentrancyGuard {
     }
 }
 
-
-// Dependency file: @openzeppelin/contracts/math/SafeMath.sol
 
 
 // pragma solidity >=0.6.0 <0.8.0;
@@ -836,9 +818,6 @@ library SafeMath {
 }
 
 
-// Dependency file: @openzeppelin/contracts/token/ERC20/IERC20.sol
-
-
 // pragma solidity >=0.6.0 <0.8.0;
 
 /**
@@ -916,14 +895,8 @@ interface IERC20 {
 }
 
 
-// Dependency file: @openzeppelin/contracts/token/ERC20/SafeERC20.sol
-
-
 // pragma solidity >=0.6.0 <0.8.0;
 
-// import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-// import "@openzeppelin/contracts/math/SafeMath.sol";
-// import "@openzeppelin/contracts/utils/Address.sol";
 
 /**
  * @title SafeERC20
@@ -993,8 +966,6 @@ library SafeERC20 {
     }
 }
 
-
-// Dependency file: @uniswap/lib/contracts/libraries/TransferHelper.sol
 
 
 // pragma solidity >=0.6.0;
@@ -1085,17 +1056,7 @@ pragma solidity =0.6.12;
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// import 'contracts/interfaces/IWooPP.sol';
-// import 'contracts/interfaces/IWETH.sol';
-// import 'contracts/interfaces/IWooRouter.sol';
 
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/access/Ownable.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/utils/Address.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/utils/ReentrancyGuard.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/math/SafeMath.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/token/ERC20/SafeERC20.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol';
-// import '/Users/ted/workspace/defi/woofi/woofi_swap_smart_contracts/node_modules/@uniswap/lib/contracts/libraries/TransferHelper.sol';
 
 /// @title Woo Router implementation.
 /// @notice Router for stateless execution of swaps against Woo private pool.

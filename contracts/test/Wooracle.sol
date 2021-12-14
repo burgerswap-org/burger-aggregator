@@ -1,4 +1,3 @@
-// Dependency file: contracts/libraries/InitializableOwnable.sol
 
 // SPDX-License-Identifier: MIT
 // pragma solidity =0.6.12;
@@ -56,9 +55,6 @@ contract InitializableOwnable {
         _NEW_OWNER_ = address(0);
     }
 }
-
-
-// Dependency file: contracts/interfaces/IWooracle.sol
 
 // pragma solidity =0.6.12;
 // pragma experimental ABIEncoderV2;
@@ -174,8 +170,6 @@ pragma solidity >=0.6.6;
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// import 'contracts/libraries/InitializableOwnable.sol';
-// import 'contracts/interfaces/IWooracle.sol';
 
 /// @title Wooracle implementation
 /// @notice Will be maintained and updated periodically by Woo.network in multichains.

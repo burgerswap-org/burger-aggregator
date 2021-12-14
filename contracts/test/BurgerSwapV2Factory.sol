@@ -1,6 +1,4 @@
-// Dependency file: contracts/interfaces/IBurgerSwapV2Pair.sol
 
-// SPDX-License-Identifier: GPL-3.0-or-later
 // pragma solidity >=0.6.6;
 
 interface IBurgerSwapV2Pair {
@@ -168,10 +166,6 @@ contract BurgerSwapV2ERC20 {
 }
 
 
-// Dependency file: contracts/libraries/Math.sol
-
-// pragma solidity >=0.6.6;
-
 // a library for performing various math operations
 
 library Math {
@@ -195,10 +189,6 @@ library Math {
 }
 
 
-// Dependency file: contracts/libraries/UQ112x112.sol
-
-// pragma solidity >=0.6.6;
-
 // a library for handling binary fixed point numbers (https://en.wikipedia.org/wiki/Q_(number_format))
 
 // range: [0, 2**112 - 1]
@@ -219,9 +209,6 @@ library UQ112x112 {
 }
 
 
-// Dependency file: contracts/interfaces/IERC20.sol
-
-// pragma solidity >=0.6.6;
 
 interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -240,8 +227,6 @@ interface IERC20 {
 }
 
 
-// Dependency file: contracts/interfaces/IBurgerSwapV2Callee.sol
-
 // pragma solidity >=0.6.6;
 
 interface IBurgerSwapV2Callee {
@@ -249,15 +234,6 @@ interface IBurgerSwapV2Callee {
 }
 
 
-// Dependency file: contracts/BurgerSwapV2Pair.sol
-
-// pragma solidity >=0.6.6;
-
-// import 'contracts/BurgerSwapV2ERC20.sol';
-// import 'contracts/libraries/Math.sol';
-// import 'contracts/libraries/UQ112x112.sol';
-// import 'contracts/interfaces/IERC20.sol';
-// import 'contracts/interfaces/IBurgerSwapV2Callee.sol';
 
 contract BurgerSwapV2Pair is BurgerSwapV2ERC20 {
     using SafeMath  for uint;
@@ -454,9 +430,6 @@ contract BurgerSwapV2Pair is BurgerSwapV2ERC20 {
 // Root file: contracts/BurgerSwapV2Factory.sol
 
 pragma solidity >=0.6.6;
-
-// import 'contracts/interfaces/IBurgerSwapV2Pair.sol';
-// import 'contracts/BurgerSwapV2Pair.sol';
 
 contract BurgerSwapV2Factory {
     address public feeTo;

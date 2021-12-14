@@ -1,4 +1,3 @@
-// Dependency file: contracts/interfaces/IERC20.sol
 
 // pragma solidity >=0.5.0;
 
@@ -18,7 +17,6 @@ interface IERC20 {
     function transferFrom(address from, address to, uint value) external returns (bool);
 }
 
-// Dependency file: contracts/libraries/TransferHelper.sol
 
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -49,8 +47,6 @@ library TransferHelper {
         require(success, 'TransferHelper: ETH_TRANSFER_FAILED');
     }
 }
-
-// Dependency file: contracts/libraries/SafeMath.sol
 
 // pragma solidity ^0.6.0;
 
@@ -209,10 +205,7 @@ library SafeMath {
         return a % b;
     }
 }
-// Dependency file: contracts/interfaces/ERC2917-Interface.sol
 
-// pragma solidity >=0.6.6;
-// import '../interfaces/IERC20.sol';
 
 interface IERC2917 is IERC20 {
 
@@ -267,7 +260,6 @@ interface IERC2917 is IERC20 {
     /// @return the amount of interests minted.
     function mint() external returns (uint);
 }
-// Dependency file: contracts/libraries/ConfigNames.sol
 
 // pragma solidity >=0.5.16;
 
@@ -290,12 +282,7 @@ library ConfigNames {
     bytes32 public constant FEE_GOVERNANCE_REWARD_PERCENT = bytes32('FEE_GOVERNANCE_REWARD_PERCENT');
     bytes32 public constant FEE_LP_REWARD_PERCENT = bytes32('FEE_LP_REWARD_PERCENT');
 }
-// Dependency file: contracts/modules/BaseShareField.sol
 
-// pragma solidity >=0.6.6;
-// import '../interfaces/ERC2917-Interface.sol';
-// import '../libraries/SafeMath.sol';
-// import '../libraries/TransferHelper.sol';
 
 contract BaseShareField {
     using SafeMath for uint;
@@ -419,7 +406,6 @@ contract BaseShareField {
     }
     
 }
-// Dependency file: contracts/interfaces/IDemaxCallee.sol
 
 // pragma solidity >=0.5.0;
 
@@ -427,7 +413,6 @@ interface IDemaxCallee {
     function demaxCall(address sender, uint amount0, uint amount1, bytes calldata data) external;
 }
 
-// Dependency file: contracts/interfaces/IDgas.sol
 
 // pragma solidity >=0.5.0;
 
@@ -446,7 +431,6 @@ interface IDgas {
     function transfer(address to, uint value) external returns (bool);
     function approve(address spender, uint value) external returns (bool);
 }
-// Dependency file: contracts/interfaces/IDemaxFactory.sol
 
 // pragma solidity >=0.5.0;
 
@@ -465,7 +449,6 @@ interface IDemaxFactory {
     function addPlayerPair(address player, address _pair) external returns (bool);
 }
 
-// Dependency file: contracts/libraries/UQ112x112.sol
 
 // pragma solidity >=0.5.0;
 
@@ -487,8 +470,6 @@ library UQ112x112 {
         z = x / uint224(y);
     }
 }
-
-// Dependency file: contracts/libraries/Math.sol
 
 // pragma solidity >=0.5.0;
 
@@ -514,7 +495,6 @@ library Math {
     }
 }
 
-// Dependency file: contracts/interfaces/IDemaxConfig.sol
 
 // pragma solidity >=0.5.0;
 
@@ -532,18 +512,7 @@ interface IDemaxConfig {
     function platform() external view returns  (address);
     function addToken(address _token) external returns (bool);
 }
-// Dependency file: contracts/DemaxPair.sol
 
-// pragma solidity >=0.6.6;
-
-// import './libraries/Math.sol';
-// import './libraries/UQ112x112.sol';
-// import './interfaces/IDemaxFactory.sol';
-// import './interfaces/IDgas.sol';
-// import './interfaces/IDemaxCallee.sol';
-// import './interfaces/IDemaxConfig.sol';
-// import './modules/BaseShareField.sol';
-// import './libraries/ConfigNames.sol';
 
 contract DemaxPair is BaseShareField {
     uint256 public version = 1;
@@ -828,9 +797,6 @@ contract DemaxPair is BaseShareField {
 }
 
 pragma solidity >=0.6.6;
-
-// import './DemaxPair.sol';
-// import './interfaces/IDemaxConfig.sol';
 
 contract DemaxFactory {
     uint256 public version = 1;
