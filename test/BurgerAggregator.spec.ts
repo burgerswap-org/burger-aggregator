@@ -46,13 +46,6 @@ describe('BurgerAggregator', async () => {
     // })
 
     describe('#getExpectedReturnWithGas', async () => {
-        it('success for fromToken same with destToken', async () => {
-            let res = await aggregator.getExpectedReturnWithGas(fromToken.address, fromToken.address, amount, 50, 0, 0)
-            expect(res.returnAmount).to.eq(0)
-            expect(res.estimateGasAmount).to.eq(0)
-            expect(res.distribution.length).to.eq(0)
-        })
-
         it('success for not exist token pair', async () => {
             let res = await aggregator.getExpectedReturnWithGas(neToken, fromToken.address, amount, 50, 0, 0)
             expect(res.returnAmount).to.eq(0)
@@ -98,6 +91,24 @@ describe('BurgerAggregator', async () => {
             expect(res.distribution[1]).to.eq(17)
             expect(res.distribution[2]).to.eq(16)
         })
+
+        it('success for fromToken-fromToken', async () => {
+            let res = await aggregator.getExpectedReturnWithGas(fromToken.address, fromToken.address, bigNumber18, 50, 0, 0)
+            expect(res.returnAmount).to.eq(BigNumber.from(0))
+            expect(res.distribution.length).to.eq(3)
+            expect(res.distribution[0]).to.eq(BigNumber.from(0))
+            expect(res.distribution[1]).to.eq(BigNumber.from(0))
+            expect(res.distribution[2]).to.eq(BigNumber.from(0))
+        })
+
+        it('success for weth-weth', async () => {
+            let res = await aggregator.getExpectedReturnWithGas(ethers.constants.AddressZero, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", bigNumber18, 50, 0, 0)
+            expect(res.returnAmount).to.eq(BigNumber.from(0))
+            expect(res.distribution.length).to.eq(3)
+            expect(res.distribution[0]).to.eq(BigNumber.from(0))
+            expect(res.distribution[1]).to.eq(BigNumber.from(0))
+            expect(res.distribution[2]).to.eq(BigNumber.from(0))
+        })
     })
 
     describe('#getExpectedReturnWithGasMulti', async () => {
@@ -121,7 +132,7 @@ describe('BurgerAggregator', async () => {
             )).to.reverted
         })
 
-        it ('success for fromToken same to connector', async () => {
+        it('success for fromToken same to connector', async () => {
             let res = await aggregator.getExpectedReturnWithGasMulti(
                 [fromToken.address, fromToken.address, destToken.address],
                 amount,
@@ -134,7 +145,7 @@ describe('BurgerAggregator', async () => {
             expect(res.returnAmounts[1]).to.eq(BigNumber.from('149536433009379990995'))
         })
 
-        it ('success for destToken same to connector', async () => {
+        it('success for destToken same to connector', async () => {
             let res = await aggregator.getExpectedReturnWithGasMulti(
                 [fromToken.address, destToken.address, destToken.address],
                 amount,
@@ -147,7 +158,7 @@ describe('BurgerAggregator', async () => {
             expect(res.returnAmounts[1]).to.eq(BigNumber.from('149536433009379990995'))
         })
 
-        it ('success for not exist token pair', async () => {
+        it('success for not exist token pair', async () => {
             let res = await aggregator.getExpectedReturnWithGasMulti(
                 [neToken, connector0.address, destToken.address],
                 amount,
@@ -192,6 +203,36 @@ describe('BurgerAggregator', async () => {
             let res2 = await aggregator.getExpectedReturnWithGasMulti([fromToken.address, connector0.address, destToken.address], amount, [1, 1], [disableDex1 + disableDex0, disableDex1 + disableDex0], [0, 0])
             expect(res0.returnAmounts[1]).to.lt(res1.returnAmounts[1])
             expect(res1.returnAmounts[1]).to.lt(res2.returnAmounts[1])
+        })
+
+        it('success for fromToken-connector0-fromToken', async () => {
+            let res = await aggregator.getExpectedReturnWithGasMulti(
+                [fromToken.address, connector0.address, fromToken.address],
+                amount,
+                [20, 20],
+                [0, 0],
+                [0, 0],
+            )
+            expect(res.returnAmounts.length).to.eq(2)
+            expect(res.returnAmounts[0]).to.eq(bigNumber18.mul(0))
+            expect(res.returnAmounts[1]).to.eq(bigNumber18.mul(0))
+            expect(res.estimateGasAmount).to.eq(0)
+            expect(res.distribution.length).to.eq(3)
+        })
+
+        it('success for weth-connector0-weth', async () => {
+            let res = await aggregator.getExpectedReturnWithGasMulti(
+                [ethers.constants.AddressZero, connector0.address, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"],
+                amount,
+                [20, 20],
+                [0, 0],
+                [0, 0],
+            )
+            expect(res.returnAmounts.length).to.eq(2)
+            expect(res.returnAmounts[0]).to.eq(bigNumber18.mul(0))
+            expect(res.returnAmounts[1]).to.eq(bigNumber18.mul(0))
+            expect(res.estimateGasAmount).to.eq(0)
+            expect(res.distribution.length).to.eq(3)
         })
     })
 
@@ -238,6 +279,16 @@ describe('BurgerAggregator', async () => {
             let gasBalanceAfter = await wallet.getBalance();
             expect(fromTokenBalanceBefore.sub(fromTokenBalanceAfter)).to.eq(bigNumber18)
             expect(gasBalanceAfter).to.gt(gasBalanceBefore)
+        })
+
+        it('fails for fromToken-fromToken', async () => {
+            let res = await aggregator.getExpectedReturnWithGas(fromToken.address, destToken.address, bigNumber18, 50, 0, 0)
+            await expect(aggregator.swap(fromToken.address, fromToken.address, bigNumber18, res.returnAmount.mul(999).div(1000), res.distribution, 0)).to.revertedWith('Same token')
+        })
+
+        it('fails for weth-weth', async () => {
+            let res = await aggregator.getExpectedReturnWithGas(fromToken.address, destToken.address, bigNumber18, 50, 0, 0)
+            await expect(aggregator.swap(ethers.constants.AddressZero, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", bigNumber18, res.returnAmount.mul(999).div(1000), res.distribution, 0)).to.revertedWith('Same token')
         })
 
         it('gas used', async () => {
@@ -339,6 +390,40 @@ describe('BurgerAggregator', async () => {
             expect(gasBalanceAfter).to.gt(gasBalanceBefore)
         })
 
+        it('fails for fromToken-connector0-fromToken', async () => {
+            let res = await aggregator.getExpectedReturnWithGasMulti(
+                [fromToken.address, connector0.address, ethers.constants.AddressZero],
+                bigNumber18,
+                [20, 20],
+                [0, 0],
+                [0, 0],
+            )
+            await expect(aggregator.swapMulti(
+                [fromToken.address, connector0.address, fromToken.address],
+                bigNumber18,
+                res.returnAmounts[1].mul(99).div(100),
+                res.distribution,
+                [0, 0]
+            )).to.revertedWith('Same token')
+        })
+
+        it('fails for weth-connector0-weth', async () => {
+            let res = await aggregator.getExpectedReturnWithGasMulti(
+                [fromToken.address, connector0.address, ethers.constants.AddressZero],
+                bigNumber18,
+                [20, 20],
+                [0, 0],
+                [0, 0],
+            )
+            await expect(aggregator.swapMulti(
+                [ethers.constants.AddressZero, connector0.address, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"],
+                bigNumber18,
+                res.returnAmounts[1].mul(99).div(100),
+                res.distribution,
+                [0, 0]
+            )).to.revertedWith('Same token')
+        })
+
         it('gas used', async () => {
             let res = await aggregator.getExpectedReturnWithGasMulti(
                 [fromToken.address, destToken.address, connector0.address],
@@ -364,7 +449,7 @@ describe('BurgerAggregator', async () => {
             let fromTokenBalanceBefore = await fromToken.balanceOf(wallet.address)
             let res = await aggregator.getExpectedReturnWithGas(ethers.constants.AddressZero, fromToken.address, bigNumber18, 50, 0, 0)
             let data1 = aggregator.interface.encodeFunctionData('swap', [ethers.constants.AddressZero, fromToken.address, bigNumber18, res.returnAmount.mul(999).div(1000), res.distribution, 0])
-            await aggregator.multicall([aggregator.address], [data1], { value: bigNumber18 })
+            await aggregator.multicall([data1], { value: bigNumber18 })
             let fromTokenBalanceAfter = await fromToken.balanceOf(wallet.address)
             expect(fromTokenBalanceAfter).to.gt(fromTokenBalanceBefore)
         })
@@ -388,14 +473,14 @@ describe('BurgerAggregator', async () => {
                     [0, 0]
                 ]
             )
-            await aggregator.multicall([aggregator.address], [data], { value: bigNumber17.mul(2) })
+            await aggregator.multicall([data], { value: bigNumber17.mul(2) })
             let fromTokenBalanceAfter = await fromToken.balanceOf(wallet.address)
             expect(fromTokenBalanceAfter.sub(fromTokenBalanceBefore)).to.gt(bigNumber18.mul(19))
         })
 
         it('success for swap && swapMulti', async () => {
             let fromTokenBalanceBefore = await fromToken.balanceOf(wallet.address)
-
+            let gasTokenBalanceBefore = await wallet.getBalance()
             let res1 = await aggregator.getExpectedReturnWithGas(ethers.constants.AddressZero, fromToken.address, bigNumber18, 50, 0, 0)
             let data1 = aggregator.interface.encodeFunctionData('swap', [ethers.constants.AddressZero, fromToken.address, bigNumber18, res1.returnAmount.mul(999).div(1000), res1.distribution, 0])
 
@@ -416,9 +501,17 @@ describe('BurgerAggregator', async () => {
                     [0, 0]
                 ]
             )
-            await aggregator.multicall([aggregator.address, aggregator.address], [data, data1], { value: bigNumber18.mul(2) })
+            await aggregator.multicall([data, data1], { value: bigNumber18.mul(2) })
             let fromTokenBalanceAfter = await fromToken.balanceOf(wallet.address)
+            let gasTokenBalanceAfter = await wallet.getBalance()
             expect(fromTokenBalanceAfter.sub(fromTokenBalanceBefore)).to.gt(bigNumber18.mul(19))
+            expect(gasTokenBalanceBefore.sub(gasTokenBalanceAfter)).to.gt(bigNumber18.mul(2))
+            expect(gasTokenBalanceBefore.sub(gasTokenBalanceAfter)).to.lt(bigNumber17.mul(21))
+        })
+
+        it('fails for wrong abi multi call', async () => {
+            let data = fromToken.interface.encodeFunctionData('transfer', [other.address, bigNumber18])
+            await expect(aggregator.multicall([data])).to.reverted
         })
     })
 

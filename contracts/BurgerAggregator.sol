@@ -102,8 +102,8 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
         uint256 flags,
         uint256 destTokenEthPriceTimesGasPrice
     ) public override view returns (uint256 returnAmount, uint256 feeAmount, uint256 estimateGasAmount, uint256[] memory distribution){
-        if (fromToken == destToken) {
-            return (returnAmount, feeAmount, estimateGasAmount, distribution);
+        if (fromToken == destToken || (fromToken.isETH() && destToken.isETH())) {
+            return (returnAmount, feeAmount, estimateGasAmount, new uint256[](dexManager.dexLength()));
         }
         (returnAmount, estimateGasAmount, distribution) = _getExpectedReturnWithGas(fromToken, destToken, amount, parts, flags, destTokenEthPriceTimesGasPrice);
         feeAmount = returnAmount.mul(fee).div(1e4);
@@ -127,12 +127,8 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
             uint256[] memory distribution
         )
     {
-        require(
-            tokens.length - 1 == parts.length
-            && parts.length == flags.length
-            && flags.length == destTokenEthPriceTimesGasPrices.length,
-            'Invalid args'
-        );
+        require(tokens.length - 1 == parts.length && parts.length == flags.length && flags.length == destTokenEthPriceTimesGasPrices.length, 'Invalid args');
+
         GetReturnMutilState memory state = GetReturnMutilState({
             tokens: tokens,
             amount: amount,
@@ -141,6 +137,9 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
             destTokenEthPriceTimesGasPrices: destTokenEthPriceTimesGasPrices,
             dist: new uint256[](0)
         });
+        if (state.tokens[0] == state.tokens[state.tokens.length - 1] || (state.tokens[0].isETH() && state.tokens[state.tokens.length - 1].isETH())) {
+            return (new uint256[](state.tokens.length - 1), feeAmount, estimateGasAmount, new uint256[](dexManager.dexLength()));
+        }
 
         returnAmounts = new uint256[](state.tokens.length - 1);
         for (uint i = 1; i < state.tokens.length; i++) {
@@ -183,7 +182,7 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
         uint256[] calldata distribution,
         uint256 flags
     ) public payable override returns (uint256 returnAmount) {
-        require (fromToken != destToken, 'Same token');
+        require(fromToken != destToken && !(fromToken.isETH() && destToken.isETH()), "Same token"); 
 
         fromToken.universalTransferFrom(msg.sender, address(this), amount);
         if (address(destToken) == address(0)) {
@@ -217,6 +216,7 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
     ) public override payable returns(uint256 returnAmount) {
         require(tokens.length - 1 == flags.length, 'Invalid args length');
         require(distribution.length == dexManager.dexLength(), 'Invalid distribution');
+        require(tokens[0] != tokens[tokens.length - 1] && !(tokens[0].isETH() && tokens[tokens.length - 1].isETH()), "Same token");
 
         tokens[0].universalTransferFrom(msg.sender, address(this), amount);
 
@@ -264,6 +264,7 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
         uint256 flags,
         uint256 destTokenEthPriceTimesGasPrice
     ) internal view returns (uint256 returnAmount, uint256 estimateGasAmount, uint256[] memory distribution){
+
         Args memory args;
         {
             args.fromToken = fromToken;
@@ -368,7 +369,7 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
             if (i == state.lastNonZeroIndex) swapAmount = state.remainingAmount;
             state.remainingAmount -= swapAmount;
             // bytes4(keccak256(bytes('swapOnDex(address,address,address,uint256,address)')));
-            siglecall(state.reserves[i].protocal, abi.encodeWithSelector(0xf32a1039, state.reserves[i].dex, address(fromToken), address(destToken), swapAmount, address(this)));
+            _siglecall(state.reserves[i].protocal, abi.encodeWithSelector(0xf32a1039, state.reserves[i].dex, address(fromToken), address(destToken), swapAmount, address(this)));
         }
 
         returnAmount = destToken.universalBalanceOf(address(this));

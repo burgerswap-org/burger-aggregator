@@ -106,7 +106,11 @@ describe('DexUniswapV2', async () => {
         })
 
         it('success for great than 74', async () => {
-            expect((await dexUniswapV2.calculateOnDex(factory.address, fromToken.address, destToken.address, amounts))[0][0]).to.gt(bigNumber18.mul(74))
+        })
+
+        it('success for weth-weth', async () => {
+            let res = await dexUniswapV2.calculateOnDex(factory.address, ethers.constants.AddressZero, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", amounts)
+            expect(res.rets[0]).to.eq(BigNumber.from(0))
         })
     })
 
@@ -141,6 +145,10 @@ describe('DexUniswapV2', async () => {
             let gasTokenBalanceAfter = await wallet.getBalance()
             expect(fromTokenBalanceBefore.sub(fromTokenBalanceAfter)).to.eq(bigNumber18.mul(20))
             expect(gasTokenBalanceAfter.sub(gasTokenBalanceBefore)).to.gt(bigNumber17.mul(16))
+        })
+
+        it('fails for swap weth-weth', async () => {
+            await expect(dexUniswapV2.swapOnDex(factory.address, ethers.constants.AddressZero, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", bigNumber18.mul(2), wallet.address, {value: bigNumber18.mul(2)})).to.reverted
         })
 
         it('gas used', async () => {

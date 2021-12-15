@@ -3,7 +3,7 @@ pragma solidity >=0.6.0;
 pragma experimental ABIEncoderV2;
 
 contract Multicall {
-    function siglecall( address target, bytes memory data) public payable returns (bytes memory) {
+    function _siglecall( address target, bytes memory data) internal returns (bytes memory) {
         (bool success, bytes memory result) = target.delegatecall(data);
         if (!success) {
             // Next 5 lines from https://ethereum.stackexchange.com/a/83577
@@ -16,12 +16,24 @@ contract Multicall {
         return result;
     }
 
-    function multicall( address[] calldata targets, bytes[] calldata datas) external payable returns (bytes[] memory results) {
+    function _multicall( address[] calldata targets, bytes[] calldata datas) internal returns (bytes[] memory results) {
         uint256 len = targets.length;
         results = new bytes[](len);
         require(datas.length == len, "Error: Array lengths do not match.");
         for (uint256 i = 0; i < len; i++) {
-            results[i] = siglecall(targets[i], datas[i]);
+            results[i] = _siglecall(targets[i], datas[i]);
+        }
+    }
+
+    function siglecall(bytes memory data) public payable returns (bytes memory) {
+        return _siglecall(address(this), data);
+    }
+
+    function multicall(bytes[] calldata datas) external payable returns (bytes[] memory results) {
+        uint256 len = datas.length;
+        results = new bytes[](len);
+        for (uint256 i = 0; i < len; i++) {
+            results[i] = siglecall(datas[i]);
         }
     }
 }
