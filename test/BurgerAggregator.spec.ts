@@ -291,6 +291,10 @@ describe('BurgerAggregator', async () => {
             await expect(aggregator.swap(ethers.constants.AddressZero, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", bigNumber18, res.returnAmount.mul(999).div(1000), res.distribution, 0)).to.revertedWith('Same token')
         })
 
+        it('fails for zero distribution', async () => {
+            await expect(aggregator.swap(fromToken.address, destToken.address, bigNumber18, 0, [0, 0, 0], 0)).to.revertedWith('Invalid distribution')
+        })
+
         it('gas used', async () => {
             let tx = await aggregator.swap(fromToken.address, destToken.address, amount, 0, [0, 5, 45], 0)
             let receipt = await tx.wait()

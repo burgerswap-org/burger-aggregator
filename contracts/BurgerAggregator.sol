@@ -182,7 +182,7 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
         uint256[] calldata distribution,
         uint256 flags
     ) public payable override returns (uint256 returnAmount) {
-        require(fromToken != destToken && !(fromToken.isETH() && destToken.isETH()), "Same token"); 
+        require(checkPath(fromToken, destToken), "Same token"); 
 
         fromToken.universalTransferFrom(msg.sender, address(this), amount);
         if (address(destToken) == address(0)) {
@@ -207,6 +207,11 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
         emit Swap(msg.sender, address(fromToken), address(destToken), amount, returnAmount);
     }
 
+    function checkPath(IERC20 _token1, IERC20 _token2) internal returns (bool) {
+        if (address(_token1) != address(_token2) && !(_token1.isETH() && _token2.isETH())) return true;
+        return false;
+    }
+
     function swapMulti(
         IERC20[] calldata tokens,
         uint256 amount,
@@ -216,7 +221,7 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
     ) public override payable returns(uint256 returnAmount) {
         require(tokens.length - 1 == flags.length, 'Invalid args length');
         require(distribution.length == dexManager.dexLength(), 'Invalid distribution');
-        require(tokens[0] != tokens[tokens.length - 1] && !(tokens[0].isETH() && tokens[tokens.length - 1].isETH()), "Same token");
+        require(checkPath(tokens[0], tokens[tokens.length - 1]), "Same token");
 
         tokens[0].universalTransferFrom(msg.sender, address(this), amount);
 
@@ -354,14 +359,8 @@ contract BurgerAggregator is Common, Configable, Multicall, IBurgerAggregator {
                 state.lastNonZeroIndex = i;
             }
         }
-
-        if (state.parts == 0) {
-            if (fromToken.isETH()) {
-                msg.sender.transfer(msg.value);
-                return msg.value;
-            }
-            return amount;
-        }
+        require(state.parts > 0, "Invalid distribution");
+        
 
         for (uint256 i = 0; i < distribution.length; i++) {
             if (distribution[i] == 0) continue;
