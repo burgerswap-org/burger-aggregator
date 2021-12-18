@@ -71,20 +71,14 @@ contract BurgerSwapReward is Configable, Initializable {
 
     function addReward(
         address _user,
-        address _tokenIn,
+        address /*_tokenIn*/,
         address _tokenOut,
-        uint256 _amountIn,
+        uint256 /*_amountIn*/,
         uint256 _amountOut
     ) external onlyWhiteList returns (uint256) {
-        uint256 rewardIn = computeReward(_tokenIn, _amountIn);
         uint256 rewardOut = computeReward(_tokenOut, _amountOut);
-        if (rewardIn > rewardOut) {
-            rewards[_user] = rewards[_user].add(rewardIn);
-            return rewardIn;
-        } else {
-            rewards[_user] = rewards[_user].add(rewardOut);
-            return rewardOut;
-        }
+        rewards[_user] = rewards[_user].add(rewardOut);
+        return rewardOut;
     }
 
     function computeReward(address _token, uint256 _amount) public view returns (uint256) {
