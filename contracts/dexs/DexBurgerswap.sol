@@ -128,15 +128,12 @@ contract DexBurgerswap is Common, Configable, IDexProtocal {
         rets = new uint256[](amounts.length);
         IERC20 fromTokenReal = fromToken.isETH() ? IERC20(weth) : fromToken;
         IERC20 destTokenReal = destToken.isETH() ? IERC20(weth) : destToken;
-        address pair = pairFor(dexAddr, address(fromTokenReal), address(destTokenReal));
-        if (pair != address(0)) {
-            uint256 fromTokenBalance = fromTokenReal.universalBalanceOf(pair);
-            uint256 destTokenBalance = destTokenReal.universalBalanceOf(pair);
-            for (uint256 i = 0; i < amounts.length; i++) {
-                rets[i] = (amounts[i] == 0) ? 0 : IDemaxPlatform(burgerPlatform).getAmountOut(amounts[i], fromTokenBalance, destTokenBalance);
-            }
-            return (rets, 28_0000);
+        (uint256 reserve0, uint256 reserve1) = getReserves(dexAddr, address(fromTokenReal), address(destTokenReal));
+        if (reserve0 == 0 || reserve1 == 0) return (rets, 0);
+        for (uint256 i = 0; i < amounts.length; i++) {
+            rets[i] = (amounts[i] == 0) ? 0 : IDemaxPlatform(burgerPlatform).getAmountOut(amounts[i], reserve0, reserve1);
         }
+        return (rets, 28_0000);
     }
 
     function _swap(
