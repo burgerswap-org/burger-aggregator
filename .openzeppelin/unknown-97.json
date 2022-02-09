@@ -74,6 +74,31 @@
       "address": "0xa3E188f7227F501E39Cfb1745F24951821A1Fe54",
       "txHash": "0x800124722a5f17e3e22ec1ee68cb16770fa88299502b4cfeecd1f8e2556ccaa4",
       "kind": "transparent"
+    },
+    {
+      "address": "0xfe614F029457bCaa6Ef98aaFb7e42f7765aA4F07",
+      "txHash": "0x8e13d69c33858e3d97d7f0b19c2ea873442032d54f55369f7318b623fee41f5f",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x301966d9F0BD9b42f497398E50300A346b6c777B",
+      "txHash": "0x192a91080226bd2e4272d5178ad22d39ddb39f6f3242f2c8a15e6226fda893c6",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x79a0235285D5705B7E3B1741f28faAD5E95fCEe3",
+      "txHash": "0x86ef478a824e135ed5ffdd7088f916b18e337a3bbe2b568b60961f0f039737a2",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x21F11582349d6B075874d7c33563856e7B3A0cf0",
+      "txHash": "0xb85a12fc0c03e37434a1544bc2b7f9380a2ae491d7780ef06003e5c2c4ffc58b",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x44813c261dDd10860b4f37Da21A9f120c8584Dba",
+      "txHash": "0x8a1fb615ff7abbe62fd3cf3c70e76fd687293c91bb43dda3eb1247761966a3f7",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -546,6 +571,116 @@
           },
           "t_address": {
             "label": "address"
+          }
+        }
+      }
+    },
+    "d5b097a972b119e6850b1f6724c57ff7d025e562d28db311d6679a55ed786d1d": {
+      "address": "0xbDdd753ae1a87d7674e46c0eE2C6a12D6A7487f4",
+      "txHash": "0x9dd1adb2dab054b167f8c0d731c3902ce83500e127c501f46be72de19b975b27",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Configable",
+            "label": "config",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:11"
+          },
+          {
+            "contract": "Configable",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts/modules/Configable.sol:12"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "contracts/modules/Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "contracts/modules/Initializable.sol:63"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "baseRate",
+            "type": "t_uint256",
+            "src": "contracts/BurgerSwapReward.sol:14"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "rewardToken",
+            "type": "t_address",
+            "src": "contracts/BurgerSwapReward.sol:15"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "pids",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/BurgerSwapReward.sol:16"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "rewards",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/BurgerSwapReward.sol:17"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "whiteList",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "contracts/BurgerSwapReward.sol:18"
+          },
+          {
+            "contract": "BurgerSwapReward",
+            "label": "pools",
+            "type": "t_array(t_struct(PoolInfo)3002_storage)dyn_storage",
+            "src": "contracts/BurgerSwapReward.sol:24"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_struct(PoolInfo)3002_storage)dyn_storage": {
+            "label": "struct BurgerSwapReward.PoolInfo[]"
+          },
+          "t_struct(PoolInfo)3002_storage": {
+            "label": "struct BurgerSwapReward.PoolInfo",
+            "members": [
+              {
+                "label": "token",
+                "type": "t_address"
+              },
+              {
+                "label": "rate",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
           }
         }
       }

@@ -3,10 +3,10 @@ import { ethers } from "hardhat";
 import { sleep } from "sleep-ts";
 
 // tokens
-const weth = '0xd68832e9087c44c5F2fb33721E6109649ab2c682'
-const usdt = '0x638FF34d350df88E5135401364e6C9cE731103Db'
+const weth = '0x7FcCaDD3e6A3F80e194CaDf13FeDF36B9BBbe98F'
+const usdt = '0xF2ED382e6A3439Be124813842200cf6702fD6ecA'
 const busd = '0xCC36337919dCE00519eb7a7013C97e79cC33D14f'
-const usdc = '0xcCB84E72502eC01fC5652e07A3A1c97e8b34b34B'
+const usdc = '0xE1106e7396dEA8c298Af67C1cdd732e0f3F32361'
 const tta = '0x941Af07A986b92f7584e78999E73D124e823Ee0B'
 const ttb = '0x6a6E31Bd0a803e012ad3F59A83B207F39A748Dea'
 
@@ -14,67 +14,67 @@ const ttb = '0x6a6E31Bd0a803e012ad3F59A83B207F39A748Dea'
 let uniswapV2Dexs = [
   {
     name: "pancakeFactory",
-    address: '0x7babBaDd5Cd874Ffe127700878A550DDE06d763C',
-    router: '0x681E12aaEFbfe0f11277aeF53A7774A21FF02eCb',
+    address: '0x09cD2234a6AaA9159B279655a218d268D9D9006F',
+    router: '0xbac161A35F68763eBF85b9C3435bc8D5a4Dbd74e',
     muls: 1000
   },
   {
     name: "mdexFactory",
-    address: '0x8eb776c967D928c5eE628C488f906532951ebe3b',
-    router: '0xB905f2FaeBEF09FC852a4f7DB599DD010311Ec17',
+    address: '0x64E047A35B4b9a27D3016982Ba70b6315A32e61C',
+    router: '0x1a62bA8C227f6Fad2D21B7c3aD861Ea136A98546',
     muls: 100
   },
   {
     name: "biSwapFactory",
-    address: '0x6b60d5d58B9723c8a0E28Ed6001a239723782c37',
-    router: '0xEE632F0bac6228970AE65cC906C0dDa612748655',
+    address: '0x3dBA57618f44f80981d5AAddD4Aa0ad29351e833',
+    router: '0x4550CD0b71F825f644BC336e8A2F2EC9f1B823Fb',
     muls: 100
   },
   {
     name: "apeSwapFactory",
-    address: '0x0a991cc0Fb6930552CcFd8102B212aa2b6026Dfb',
-    router: '0xA7f868A39b93524bBcACBace54dcfDaA795b9bBd',
+    address: '0x4eB2614c2C2890c5Bd31dBb64d3C1e9eeCB9Ef36',
+    router: '0x289580b420c7324949Cc47F54706Ca8D3bEbc093',
     muls: 50
   },
   {
     name: "bakerySwapFactory",
-    address: '0x103763466182190E37F133ae9A85e8f73cF663B0',
-    router: '0xB92755578f406105EB265Bf52e41A8B07B54B5CB',
+    address: '0x9bC5E5E943861915694C898145CEF38eC86A808B',
+    router: '0x28e7622B28097A8611B67B9709D2dA418811Bf6b',
     muls: 50
   },
   {
     name: "babySwapFactory",
-    address: '0x197775e2035049A989519F7Adc5BF4Beb071208a',
-    router: '0x68F0d16aa3d7e2b9c135d90733AEE9e8813Ca473',
+    address: '0x6CCC14fe7c239C50A272Bb8dd1037652b3399B60',
+    router: '0x5c4F715a80A3bf3305FB44753b7e8e78c2245126',
     muls: 1
   }
 ]
 let burgerswapV2Dexs = [
   {
     name: "burgerSwapFactory",
-    address: '0xa9Daa6694A984a90c6F8cE77476a787cbaab4118',
-    platform: '0x87a861938a4F36b74F22AB2ffe846A2b576BD3ef',
-    config: '0xfBd919340A44922890e73AeF9930A155B430476e',
-    transferListener: '0x7A88a7Cb4E6B1496f0963e413Ce7513B654A23b7',
-    pool: '0xeB2e5277390d8BD716B81C1b344e2fcE0Ee80101',
-    dgas: '0xbfB92C398Af50a3384B09CE74708EdA13E572121',
+    address: '0x7EA51c334fF1b0Af2b8706D1f0F54BF16d9bB992',
+    platform: '0x9F1d1427FDAeDFc6745E263D44743414495c35Ed',
+    config: '0xf956Cda0f2Bd2a5054ADeD2f41298501ac52b0F2',
+    transferListener: '0xba25Aa25A2dE681D12eBd1AD8D987A071a48F77f',
+    pool: '0xd23e908160FeD0F7795A205CF20650aBCce2771C',
+    dgas: '0x06bF890dfF5b422c35c9683f47d2d7663f6E1c24',
     muls: 50
   }
 ]
 let wooFiswapDexs = [
   {
     name: "WooFiSwap",
-    wooGuardian: '0x208F2247F2478083543F12d92dC2F77d8a06f949',
-    wooracle: '0xaA4Fd8334F4cCd0c795670e165606c7cB6Ffff46',
-    wooPP: '0xe01C1B9C18058E9F6F9aFE2d34aA8Aa09dA90A1d',
-    wooRouter: '0x363CCDEFd061651D453Fe08DdADc9a6A727DAd8C'
+    wooGuardian: '0x596115C8fFc50614b1E4f9D2CfaE34065aA5A8D6',
+    wooracle: '0x2Da48033FB8f175BaA214a29cA4095d5FEf04dF9',
+    wooPP: '0x607A9F63cDDdF8AA11CAFF727e3d54edB05C6ce5',
+    wooRouter: '0xc1F485De4F94BB3B09873adA497B4DCc67fa2Ed9'
   }
 ]
 
 // constants
 const bigNumber18 = BigNumber.from('1000000000000000000');
 const bigNumber17 = BigNumber.from('100000000000000000');
-const deadLine = BigNumber.from('1640966400');
+const deadLine = BigNumber.from('1956499200');
 
 async function waitForMint(tx: any) {
   let result = null
@@ -378,30 +378,30 @@ async function deployDexBurgerswapV2(burgerswapV2Dex: any) {
   }
   console.log('deploy factory success: ', factory.address)
 
-  let governanace = config;
-  let tx = await transferListener.initialize(dgas.address, factory.address, weth, platform.address, wallet);
-  await waitForMint(tx.hash);
-  console.log('transferListener initialize success: ', tx.hash)
+  // let governanace = config;
+  // let tx = await transferListener.initialize(dgas.address, factory.address, weth, platform.address, wallet);
+  // await waitForMint(tx.hash);
+  // console.log('transferListener initialize success: ', tx.hash)
 
-  tx = await pool.initialize(dgas.address, weth, factory.address, platform.address, config.address, governanace.address);
-  await waitForMint(tx.hash);
-  console.log('pool initialize success: ', tx.hash)
+  // tx = await pool.initialize(dgas.address, weth, factory.address, platform.address, config.address, governanace.address);
+  // await waitForMint(tx.hash);
+  // console.log('pool initialize success: ', tx.hash)
 
-  tx = await platform.initialize(dgas.address, config.address, factory.address, weth, governanace.address, transferListener.address, pool.address);
-  await waitForMint(tx.hash);
-  console.log('platform initialize success: ', tx.hash)
+  // tx = await platform.initialize(dgas.address, config.address, factory.address, weth, governanace.address, transferListener.address, pool.address);
+  // await waitForMint(tx.hash);
+  // console.log('platform initialize success: ', tx.hash)
 
-  tx = await config.initialize(dgas.address, governanace.address, platform.address, wallet, [weth, usdt]);
-  await waitForMint(tx.hash);
-  console.log('config initialize success: ', tx.hash)
+  // tx = await config.initialize(dgas.address, governanace.address, platform.address, wallet, [weth, usdt]);
+  // await waitForMint(tx.hash);
+  // console.log('config initialize success: ', tx.hash)
 
-  tx = await dgas.upgradeImpl(transferListener.address)
-  await waitForMint(tx.hash);
-  console.log('dgas upgradeImpl success: ', tx.hash)
+  // tx = await dgas.upgradeImpl(transferListener.address)
+  // await waitForMint(tx.hash);
+  // console.log('dgas upgradeImpl success: ', tx.hash)
 
 
   // dgas approve to platform
-  tx = await dgas.approve(platform.address, bigNumber18.mul('10000000000'));
+  let tx = await dgas.approve(platform.address, bigNumber18.mul('10000000000'));
   await waitForMint(tx.hash);
   console.log('dgas approve success: ', tx.hash);
 
@@ -541,11 +541,6 @@ async function deployDexWooFiswap(wooFiswapDex: any) {
         BigNumber.from('5000000000'),
         BigNumber.from('500000000000'),
         BigNumber.from('500000000000')
-      ],
-      [
-        true,
-        true,
-        true
       ]
     );
     await waitForMint(tx.hash);
@@ -609,7 +604,7 @@ async function deployDexWooFiswap(wooFiswapDex: any) {
 
 async function main() {
   // deploy tokens 
-  await deployTokens();
+  // await deployTokens();
 
   // deploy uniswapv2 dexs
   for (let i = 0; i < uniswapV2Dexs.length; i++) {
@@ -619,7 +614,7 @@ async function main() {
   }
 
   // deploy burgerswapv2 dexs
-  await deployDexBurgerswapV2(burgerswapV2Dexs[0])
+  // await deployDexBurgerswapV2(burgerswapV2Dexs[0])
 
   // deploy woofiswap dexs
   await deployDexWooFiswap(wooFiswapDexs[0])
